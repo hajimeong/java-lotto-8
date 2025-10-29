@@ -1,8 +1,10 @@
 package lotto.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -21,5 +23,30 @@ class LottoTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    // TODO: 추가 기능 구현에 따른 테스트 코드 작성
+    @Test
+    void 정상_로또번호_저장(){
+        List<Integer>numbers= Arrays.asList(8, 21, 23, 41, 42, 43);
+        Lotto lotto = new Lotto(numbers);
+
+        Assertions.assertEquals(numbers, lotto.getNumbers());
+        Assertions.assertEquals("[8, 21, 23, 41, 42, 43]", lotto.toString());
+    }
+
+    @Test
+    void 번호_개수가_6개가_아닌_경우_예외(){
+        List<Integer>numbers= Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            new Lotto(numbers);
+        });
+
+        Assertions.assertEquals("[ERROR] 로또 번호는 6개여야 합니다.", exception.getMessage());
+    }
+
+    @Test
+    void 문자열_출력시_정렬_확인(){
+        List<Integer>numbers= Arrays.asList(42, 8, 23, 43, 21, 41);
+        Lotto lotto = new Lotto(numbers);
+
+        Assertions.assertEquals("[8, 21, 23, 41, 42, 43]", lotto.toString());
+    }
 }
