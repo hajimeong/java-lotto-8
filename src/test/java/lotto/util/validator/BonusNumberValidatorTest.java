@@ -1,5 +1,6 @@
 package lotto.util.validator;
 
+import lotto.domain.Lotto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +9,7 @@ import java.util.List;
 class BonusNumberValidatorTest {
     @Test
     void 보너스번호_정상_처리_테스트(){
-        List<Integer> winningLotto=List.of(1,2,3,4,5,6);
+        Lotto winningLotto=new Lotto(List.of(1,2,3,4,5,6));
 
         Assertions.assertDoesNotThrow(()->BonusNumberValidator.validateBonusNumber(7,winningLotto));
         Assertions.assertDoesNotThrow(()->BonusNumberValidator.validateBonusNumber(45,winningLotto));
@@ -17,7 +18,7 @@ class BonusNumberValidatorTest {
 
     @Test
     void 보너스번호_범위_벗어났을때_예외_처리(){
-        List<Integer> winningLotto=List.of(1,2,3,4,5,6);
+        Lotto winningLotto=new Lotto(List.of(1,2,3,4,5,6));
 
         IllegalArgumentException exception1=Assertions.assertThrows(IllegalArgumentException.class,
                 ()->BonusNumberValidator.validateBonusNumber(0,winningLotto));
@@ -30,7 +31,7 @@ class BonusNumberValidatorTest {
 
     @Test
     void 보넌스번호_당첨번호와_중복(){
-        List<Integer> winningLotto=List.of(1,2,3,4,5,6);
+        Lotto winningLotto=new Lotto(List.of(1,2,3,4,5,6));
 
         IllegalArgumentException exception=Assertions.assertThrows(IllegalArgumentException.class,
                 ()->BonusNumberValidator.validateBonusNumber(1,winningLotto));
