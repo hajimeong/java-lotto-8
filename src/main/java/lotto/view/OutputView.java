@@ -11,12 +11,12 @@ import java.util.stream.Collectors;
 public class OutputView {
 
     //구입한 로또의 수량 출력
-    public void printAmount(int amount){
+    public static void printAmount(int amount){
         System.out.println(amount+"개를 구매했습니다.");
     }
 
     //생성된 로또 리스트 출력
-    public void printLottoNumbers(List<Lotto> lottoNumbers){
+    public static void printLottoNumbers(List<Lotto> lottoNumbers){
         for(Lotto lotto:lottoNumbers){
             List<Integer> numbers = lotto.getNumbers();
             String formattedNumbers=numbers.stream()
@@ -27,7 +27,7 @@ public class OutputView {
     }
 
    //당첨 통계 출력
-    public void printLottoResult(LottoResult  lottoResult, int purchaseAmount){
+    public static void printLottoResult(LottoResult lottoResult, int purchaseAmount){
         System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");
