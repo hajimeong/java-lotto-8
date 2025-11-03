@@ -27,7 +27,7 @@ public class OutputView {
     }
 
    //당첨 통계 출력
-    public static void printLottoResult(LottoResult  lottoResult, int purchaseAmount){
+    public void printLottoResult(LottoResult  lottoResult, int purchaseAmount){
         System.out.println();
         System.out.println("당첨 통계");
         System.out.println("---");
