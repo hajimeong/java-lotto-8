@@ -28,6 +28,10 @@ public enum LottoRank {
         return MISS;
     }
 
+    public int getMatchCount() {
+        return matchCount;
+    }
+
     public int getPrize() {
         return prize;
     }
