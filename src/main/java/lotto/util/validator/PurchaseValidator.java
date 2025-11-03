@@ -4,7 +4,7 @@ public class PurchaseValidator {
     private static final int LOTTO_PRICE=1000;
 
     //구입금액이 1000원 단위인지 검증
-    public void validatePurchase(int purchasePrice){
+    public static void validatePurchase(int purchasePrice){
         validateUnit(purchasePrice);
     }
 
