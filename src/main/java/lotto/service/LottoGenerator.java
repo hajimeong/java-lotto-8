@@ -20,6 +20,8 @@ public class LottoGenerator {
         return lottos;
     }
 
+    public int getAmount(int price){return calculateAmount(price);}
+
     private int calculateAmount(int price){
         return price/LOTTO_PRICE;
     }
